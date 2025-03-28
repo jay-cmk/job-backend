@@ -11,14 +11,14 @@ import ProviderRouter from './routes/ProviderRoute.js';
 
 dotenv.config();
 const app = express();
-// console.log(process.env.FRONTEND_URLS)
-// app.use(
-//     cors({
-//       origin: process.env.FRONTEND_URL, // Allow frontend URL from .env
-//       credentials: true, // Allow cookies/session
-//       methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
-//     })
-//   );
+console.log(process.env.FRONTEND_URLS)
+app.use(
+    cors({
+      origin: process.env.FRONTEND_URLSS, // Allow frontend URL from .env
+      credentials: true, // Allow cookies/session
+      methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
+    })
+  );
 app.use(cors({ origin: "*", credentials: true }));
 
   const PORT = process.env.PORT || 5000;
