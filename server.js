@@ -11,7 +11,7 @@ import ProviderRouter from './routes/ProviderRoute.js';
 
 dotenv.config();
 const app = express();
-console.log(process.env.FRONTEND_URL)
+// console.log(process.env.FRONTEND_URLS)
 // app.use(
 //     cors({
 //       origin: process.env.FRONTEND_URL, // Allow frontend URL from .env
