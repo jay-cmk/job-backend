@@ -11,24 +11,16 @@ import ProviderRouter from './routes/ProviderRoute.js';
 
 dotenv.config();
 const app = express();
-const allowedOrigins = [
-    process.env.FRONTEND_URL_1, 
-    process.env.FRONTEND_URL_2
-  ];
-  
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
-      credentials: true,
-      methods: ["GET", "POST", "PUT", "DELETE"],
-    })
-  );
+console.log(process.env.FRONTEND_URL)
+// app.use(
+//     cors({
+//       origin: process.env.FRONTEND_URL, // Allow frontend URL from .env
+//       credentials: true, // Allow cookies/session
+//       methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
+//     })
+//   );
+app.use(cors({ origin: "*", credentials: true }));
+
   const PORT = process.env.PORT || 5000;
 app.use(express.json()); 
 app.use('/api/user',jobSeekerRouter)
