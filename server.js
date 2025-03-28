@@ -11,8 +11,14 @@ import ProviderRouter from './routes/ProviderRoute.js';
 
 dotenv.config();
 const app = express();
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-const PORT = process.env.PORT || 5000;
+app.use(
+    cors({
+      origin: process.env.FRONTEND_URL, // Allow frontend URL from .env
+      credentials: true, // Allow cookies/session
+      methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific methods
+    })
+  );
+  const PORT = process.env.PORT || 5000;
 app.use(express.json()); 
 app.use('/api/user',jobSeekerRouter)
 app.use('/api/recruiter',RecruiterRouter)
